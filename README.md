@@ -1,6 +1,13 @@
 # www.apirpc.com
 
 
++ [Examples — jsonrpcclient 4.0.0-dev documentation](https://www.jsonrpcclient.com/en/latest/examples.html)
++ [explodinglabs/jsonrpcclient: Generate JSON-RPC requests and parse responses in Python](https://github.com/explodinglabs/jsonrpcclient)
+
+[JSON-RPC - Wikipedia](https://en.wikipedia.org/wiki/JSON-RPC)
+
+> **JSON-RPC** is a [remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call "Remote procedure call") [protocol](https://en.wikipedia.org/wiki/Protocol_(computing) "Protocol (computing)") encoded in [JSON](https://en.wikipedia.org/wiki/JSON "JSON"). It is similar to the [XML-RPC](https://en.wikipedia.org/wiki/XML-RPC "XML-RPC") protocol, defining only a few data types and commands. JSON-RPC allows for notifications (data sent to the server that does not require a response) and for multiple calls to be sent to the server which may be answered asynchronously.
+
 ## [Remote procedure call - Wikipedia](https://en.wikipedia.org/wiki/Remote_procedure_call)
 
 In [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing "Distributed computing"), a **remote procedure call** (**RPC**) is when a computer program causes a procedure (subroutine) to execute in a different [address space](https://en.wikipedia.org/wiki/Address_space "Address space") (commonly on another computer on a shared network), which is written as if it were a normal (local) procedure call, without the programmer explicitly writing the details for the remote interaction. That is, the programmer writes essentially the same code whether the subroutine is local to the executing program, or remote. This is a form of client–server interaction (caller is client, executor is server), typically implemented via a request–response message-passing system. In the object-oriented programming paradigm, RPCs are represented by remote method invocation (RMI). The RPC model implies a level of location transparency, namely that calling procedures are largely the same whether they are local or remote, but usually, they are not identical, so local calls can be distinguished from remote calls. Remote calls are usually orders of magnitude slower and less reliable than local calls, so distinguishing them is important.
