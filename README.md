@@ -1,8 +1,128 @@
-# www
-www.apirpc.com
+# www.apirpc.com
 
 
-[Web API Architecture Style](https://restlet.talend.com/web-api-style/)
+## [Remote procedure call - Wikipedia](https://en.wikipedia.org/wiki/Remote_procedure_call)
+
+In [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing "Distributed computing"), a **remote procedure call** (**RPC**) is when a computer program causes a procedure (subroutine) to execute in a different [address space](https://en.wikipedia.org/wiki/Address_space "Address space") (commonly on another computer on a shared network), which is written as if it were a normal (local) procedure call, without the programmer explicitly writing the details for the remote interaction. That is, the programmer writes essentially the same code whether the subroutine is local to the executing program, or remote. This is a form of client–server interaction (caller is client, executor is server), typically implemented via a request–response message-passing system. In the object-oriented programming paradigm, RPCs are represented by remote method invocation (RMI). The RPC model implies a level of location transparency, namely that calling procedures are largely the same whether they are local or remote, but usually, they are not identical, so local calls can be distinguished from remote calls. Remote calls are usually orders of magnitude slower and less reliable than local calls, so distinguishing them is important.
+
+RPCs are a form of inter-process communication (IPC), in that different processes have different address spaces: if on the same host machine, they have distinct virtual address spaces, even though the physical address space is the same; while if they are on different hosts, the physical address space is different. Many different (often incompatible) technologies have been used to implement the concept.
+
+## [What is the difference between grpc-gateway vs Twirp RPC - Stack Overflow](https://stackoverflow.com/questions/62494187/what-is-the-difference-between-grpc-gateway-vs-twirp-rpc)
+
+Twirp and gRPC gateway are similar. They both build API services out of a protobuf file definition.
+
+Main differences:
+
+- gRPC only uses protobuf over HTTP2, which means browsers can't easily talk directly to gRPC-based services.
+- Twirp works over Protobuf and JSON, over HTTP 1.1 and HTTP2, so any client can easily communicate.
+- gRPC is a full framework with many features. Very powerful stuff.
+- Twirp is tiny and small. Only has a few basic features but it is a lot easier to manage.
+
+reasons for gRPC over Twirp are:
+
++ gRPC supports streaming.
++ gRPC makes wire compatibility promises.
++ More functionality on the networking level.
+
+
+
+## [gRPC + JSON | gRPC](https://grpc.io/blog/grpc-with-json/)
+
+# gRPC + JSON
+
+By [**Carl Mastrangelo**](https://carlmastrangelo.com) (Google) | Wednesday, August 15, 2018
+
+[Contents](https://grpc.io/blog/grpc-with-json/#td-content__toc)
+
+- [What is a Service Anyways?](https://grpc.io/blog/grpc-with-json/#what-is-a-service-anyways)
+- [Sending RPCs](https://grpc.io/blog/grpc-with-json/#sending-rpcs)
+- [Receiving RPCs](https://grpc.io/blog/grpc-with-json/#receiving-rpcs)
+- [Optimizing the Code](https://grpc.io/blog/grpc-with-json/#optimizing-the-code)
+- [Conclusion](https://grpc.io/blog/grpc-with-json/#conclusion)
+
+So you’ve bought into this whole RPC thing and want to try it out, but aren’t quite sure about Protocol Buffers. Your existing code encodes your own objects, or perhaps you have code that needs a particular encoding. What to do?
+
+Fortunately, gRPC is encoding agnostic! You can still get a lot of the benefits of gRPC without using Protobuf. In this post we’ll go through how to make gRPC work with other encodings and types. Let’s try using JSON.
+
+gRPC is actually a collection of technologies that have high cohesion, rather than a singular, monolithic framework. This means its possible to swap out parts of gRPC and still take advantage of gRPC’s benefits. [Gson](https://github.com/google/gson) is a popular library for Java for doing JSON encoding. Let’s remove all the protobuf related things and replace them with Gson:
+
+- Protobuf wire encoding
+- Protobuf generated message types
+- gRPC generated stub types
++ JSON wire encoding
++ Gson message types
+    
+
+Previously, Protobuf and gRPC were generating code for us, but we would like to use our own types. Additionally, we are going to be using our own encoding too. Gson allows us to bring our own types in our code, but provides a way of serializing those types into bytes.
+
+
+## [Quick start | Python | gRPC](https://grpc.io/docs/languages/python/quickstart/)
+
+
+This guide gets you started with gRPC in Python with a simple working example.
+
+[Contents](https://grpc.io/docs/languages/python/quickstart/#td-content__toc)
+
+- - [Prerequisites](https://grpc.io/docs/languages/python/quickstart/#prerequisites)
+        - [gRPC](https://grpc.io/docs/languages/python/quickstart/#grpc)
+        - [gRPC tools](https://grpc.io/docs/languages/python/quickstart/#grpc-tools)
+    - [Download the example](https://grpc.io/docs/languages/python/quickstart/#download-the-example)
+    - [Run a gRPC application](https://grpc.io/docs/languages/python/quickstart/#run-a-grpc-application)
+    - [Update the gRPC service](https://grpc.io/docs/languages/python/quickstart/#update-the-grpc-service)
+    - [Generate gRPC code](https://grpc.io/docs/languages/python/quickstart/#generate-grpc-code)
+    - [Update and run the application](https://grpc.io/docs/languages/python/quickstart/#update-and-run-the-application)
+        - [Update the server](https://grpc.io/docs/languages/python/quickstart/#update-the-server)
+        - [Update the client](https://grpc.io/docs/languages/python/quickstart/#update-the-client)
+        - [Run!](https://grpc.io/docs/languages/python/quickstart/#run)
+    - [What’s next](https://grpc.io/docs/languages/python/quickstart/#whats-next)
+
+# Quick start
+
+This guide gets you started with gRPC in Python with a simple working example.
+
+### Prerequisites[](https://grpc.io/docs/languages/python/quickstart/#prerequisites)
+
+- Python 3.7 or higher
+- `pip` version 9.0.1 or higher
+
+If necessary, upgrade your version of `pip`:
+
+    $ python -m pip install --upgrade pip
+    
+
+If you cannot upgrade `pip` due to a system-owned installation, you can run the example in a virtualenv:
+
+    $ python -m pip install virtualenv
+    $ virtualenv venv
+    $ source venv/bin/activate
+    $ python -m pip install --upgrade pip
+    
+
+#### gRPC[](https://grpc.io/docs/languages/python/quickstart/#grpc)
+> 
+> Install gRPC:
+> 
+>     $ python -m pip install grpcio
+>     
+> 
+> Or, to install it system wide:
+> 
+>     $ sudo python -m pip install grpcio
+>     
+> 
+> #### gRPC tools[](https://grpc.io/docs/languages/python/quickstart/#grpc-tools)
+> 
+> Python’s gRPC tools include the protocol buffer compiler `protoc` and the special plugin for generating server and client code from `.proto` service definitions. For the first part of our quick-start example, we’ve already generated the server and client stubs from [helloworld.proto](https://github.com/grpc/grpc/tree/v1.54.0/examples/protos/helloworld.proto), but you’ll need the tools for the rest of our quick start, as well as later tutorials and your own projects.
+> 
+> To install gRPC tools, run:
+> 
+>     $ python -m pip install grpcio-tools
+
+
+
+
+
+## [Web API Architecture Style](https://restlet.talend.com/web-api-style/)
 
 There is no reason to oppose both styles as they are not solving the same problems, even though they are both deeply connected with the Web. The figure below represents their main differences.
 
