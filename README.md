@@ -1,6 +1,34 @@
 # www.apirpc.com
 
 
+warstwa DSL dla komunikacji
+żeby można było wymieniać dane przez HTTP poprzez komendy w konsoli/na backendzie
+format DSL: apifunc.host(provider.com).data(funkcja).format(json).funkcja('POST')
+
+format URL requestów    http:// provider.com / data_model . format
+czyli przez CURL też można, np: GET http:// provider.com / user . json?all
+DELETE  http:// provider.com / user . json ? username="chuj"
+jako format do operacji na sieci CDN
+
+aby łatwo dodawać i odcinać zasoby
+a także do użycia lokalnie do zasobów, które mają być dostępne dla backendu, np tworzę coś na wzór elastic search dla swoich usług, domen, projektów
+potrzebuję mieć przegląd biznesu z róznych API, aby móc też na tym budować logikę i strategię z planowaniem decyzji automatycznie
+dlatego pomyślałem, że tak mógłbym określać zbiory zasobów
+dodałbym do tego routing lokalnie w pliku i przetwarzał lokalnie w oparciu o własne zasoby lub te zdalne
+GET apiRPC :// godaddy.com / domain . json?all
+powyżej wywołanie było by przekierowywane do wewnątrz, np do pliku: local/godaddy.com/api.py a dane były by w local/godaddy.com/domain.json
+chodzi o dostęp do zasobów, które można budować w formie lokalnych wywołań niezależnie od języka programowania i danych
+aby można było łatwo zbudowac strukturę danych i wywoływać je na frontendzie
+
+w formie np.  http://localhost/godaddy.com/domain.json
+czyli PROTOCOL / HOST / PROVIDER / DATA MODEL / DATA TYPE
+
+
+
+
+
+
+
 + [Examples — jsonrpcclient 4.0.0-dev documentation](https://www.jsonrpcclient.com/en/latest/examples.html)
 + [explodinglabs/jsonrpcclient: Generate JSON-RPC requests and parse responses in Python](https://github.com/explodinglabs/jsonrpcclient)
 
