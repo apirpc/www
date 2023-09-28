@@ -22,6 +22,28 @@ JSON POST /device2/api/data { "temperature": 25 }
 JSON PUT /device2/api/data { "temperature": 20 }
 ```
 
+pierwszy element
+```bash
+LIST GET domain.txt
+ITEM FIRST LIST
+IMAGE GET ITEM
+```
+
+kaskadowo, kolejno
+```bash
+LIST GET domain.txt
+ITEM EACH LIST
+IMAGE GET ITEM
+```
+
+
+Data types:
++ LIST - internal
++ IMAGE - screenshoot
++ YAML
++ JSON
++ TXT
+
 jako format do operacji na sieci CDN
 
 aby łatwo dodawać i odcinać zasoby
