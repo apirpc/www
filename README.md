@@ -28,6 +28,7 @@ pierwszy element
 LIST GET domain.txt
 ITEM FIRST LIST
 IMAGE GET ITEM
+FILE CREATE IMAGE
 ```
 
 pierwszy element zdalny host
@@ -35,14 +36,17 @@ pierwszy element zdalny host
 LIST GET https://domena.com/domain.txt
 ITEM FIRST LIST
 IMAGE GET ITEM
+FILE CREATE IMAGE
 ```
 
 kaskadowo, kolejno
 ```bash
 LIST GET domain.txt
-ITEM EACH LIST
-IMAGE GET ITEM
+ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 ```
+
++ CREATE=POST
++ UPDATE=PUT
 
 
 Data types:
