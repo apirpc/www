@@ -51,6 +51,22 @@ LIST GET /path/to/folder/images/*
 ITEM EACH LIST | IMAGE GET ITEM | TXT OCR IMAGE | FILE CREATE TXT
 ```
 
+
+bot na strone www, desktop
+[strato/login_screenshot.csv at main · botreck/strato](https://github.com/botreck/strato/edit/main/login_screenshot.csv)
+```bash
+SCREEN GET https://strato.pl/auth/login.html
+SCREEN FOCUS | CLASS input.text.login
+SCREEN WRITE | TXT GET file://strato.pl/.user
+SCREEN FOCUS | CLASS input.text.password
+SCREEN WRITE | TXT GET file://strato.pl/.pass
+SCREEN WAIT 3000
+SCREEN CLICK | XPATH input.mid.button-green-large
+SCREEN CREATE file://screen.png
+```
+
+
+
 ### format danych
 dana wyjściowa - komenda - źródło
 
