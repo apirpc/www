@@ -45,11 +45,26 @@ LIST GET domain.txt
 ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 ```
 
+kaskadowo, kolejno
+```bash
+LIST GET domain.txt
+ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
+LIST GET /path/to/folder/*
+ITEM EACH LIST | TXT GET ITEM | TXT OCR IMAGE | FILE CREATE TXT
+```
+
+
+### FILESYSTEM=HTTP alias Commands:
+
 + CREATE=POST
 + UPDATE=PUT
 
+### INTERNAL Commands:
++ OCR - image processing
++ 
 
-Data types:
+###  Data types:
+
 + LIST - internal
 + IMAGE - screenshoot
 + YAML
