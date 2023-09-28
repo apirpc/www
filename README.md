@@ -25,7 +25,7 @@ JSON PUT /device2/api/data { "temperature": 20 }
 
 pierwszy element
 ```bash
-LIST GET domain.txt
+LIST GET file://domain.txt
 ITEM FIRST LIST
 IMAGE GET ITEM
 FILE CREATE IMAGE
@@ -41,7 +41,7 @@ FILE CREATE IMAGE
 
 kaskadowo, kolejno
 ```bash
-LIST GET domain.txt
+LIST GET file://domain.txt
 ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 ```
 
