@@ -18,7 +18,8 @@ DELETE  http:// provider.com / user . json ? username="enemy"
 ```bash
 YAML SCAN_NETWORK 192.168.0.0/24
 TXT GET /device1/api/data
-JSON SET /device2/api/data { "temperature": 25 }
+JSON POST /device2/api/data { "temperature": 25 }
+JSON PUT /device2/api/data { "temperature": 20 }
 ```
 
 jako format do operacji na sieci CDN
