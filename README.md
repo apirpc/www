@@ -22,9 +22,17 @@ JSON POST /device2/api/data { "temperature": 25 }
 JSON PUT /device2/api/data { "temperature": 20 }
 ```
 
+
 pierwszy element
 ```bash
 LIST GET domain.txt
+ITEM FIRST LIST
+IMAGE GET ITEM
+```
+
+pierwszy element zdalny host
+```bash
+LIST GET https://domena.com/domain.txt
 ITEM FIRST LIST
 IMAGE GET ITEM
 ```
