@@ -3,11 +3,24 @@
 
 warstwa DSL dla komunikacji
 żeby można było wymieniać dane przez HTTP poprzez komendy w konsoli/na backendzie
+
 format DSL: apifunc.host(provider.com).data(funkcja).format(json).funkcja('POST')
 
 format URL requestów    http:// provider.com / data_model . format
-czyli przez CURL też można, np: GET http:// provider.com / user . json?all
-DELETE  http:// provider.com / user . json ? username="chuj"
+
+czyli przez CURL też można, np: 
+
+```bash
+GET http:// provider.com / user . json?all
+DELETE  http:// provider.com / user . json ? username="enemy"
+```
+
+```bash
+YAML SCAN_NETWORK 192.168.0.0/24
+TXT GET /device1/api/data
+JSON SET /device2/api/data { "temperature": 25 }
+```
+
 jako format do operacji na sieci CDN
 
 aby łatwo dodawać i odcinać zasoby
@@ -15,14 +28,25 @@ a także do użycia lokalnie do zasobów, które mają być dostępne dla backen
 potrzebuję mieć przegląd biznesu z róznych API, aby móc też na tym budować logikę i strategię z planowaniem decyzji automatycznie
 dlatego pomyślałem, że tak mógłbym określać zbiory zasobów
 dodałbym do tego routing lokalnie w pliku i przetwarzał lokalnie w oparciu o własne zasoby lub te zdalne
+
+
+```bash
 GET apiRPC :// godaddy.com / domain . json?all
+```
+
 powyżej wywołanie było by przekierowywane do wewnątrz, np do pliku: local/godaddy.com/api.py a dane były by w local/godaddy.com/domain.json
 chodzi o dostęp do zasobów, które można budować w formie lokalnych wywołań niezależnie od języka programowania i danych
 aby można było łatwo zbudowac strukturę danych i wywoływać je na frontendzie
 
-w formie np.  http://localhost/godaddy.com/domain.json
-czyli PROTOCOL / HOST / PROVIDER / DATA MODEL / DATA TYPE
+w formie np.  
+```
+http://localhost/godaddy.com/domain.json
+```
 
+czyli 
+```
+PROTOCOL / HOST / PROVIDER / DATA MODEL / DATA TYPE
+```
 
 
 
