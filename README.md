@@ -51,6 +51,9 @@ LIST GET /path/to/folder/images/*
 ITEM EACH LIST | IMAGE GET ITEM | TXT OCR IMAGE | FILE CREATE TXT
 ```
 
+### format danych
+dana wyjściowa - komenda - źródło
+
 
 ### FILESYSTEM=HTTP alias Commands:
 
