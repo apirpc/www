@@ -492,6 +492,7 @@ RUN:
 
 browser.yaml
 ```yaml
+# wget https://www.apirpc.com/apirpc.py | python
 INIT:
     RUN: "/apirpc/router.sh"
     SET: "/apirpc/config.sh"
