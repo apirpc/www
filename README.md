@@ -1,6 +1,52 @@
 # www.apirpc.com
 
 
+DSL jest do specyficznych, wyspecjalizowanych zastosowań, tutaj chciałbym mieć okazję do tworzenia w różnych formatach tych scenariuszy, by je przesyłać i wykonywać w różnych miejscach
+jest coś takiego jak Apache CAMEL https://camel.apache.org/camel-k/2.0.x/
+
+Camel is an open source integration framework that empowers you to quickly and easily integrate various systems consuming or producing data.
+from('timer:tick?period=3000')
+  .setBody().constant('Hello world from Camel K')
+  .to('log:info')
+inspirując się nim i JQUERY zrobiłem APIdsl
+ale to skomplikowane, gdy musisz uczyć się tych wszystkich URI
+dlatego łatwiej po prostu spiąć do kupy kod który masz lokalnie
+
+
+jest kilka warstw, z reguły piszemy kod w zależnościach
+potem uruchamiamy je jako usługa
+i korzystamy też z usług zdalnych
+i tutaj chce to wszystko zebrać do kupy tak jak robimy to w docker compose, ale o poziom wyżej, z możliwością konfigurowania samego formatu pliku
+np. na poczatku
+
+wartswa podstawowa to warstwa systemu, dlatego każdy z tych parametrów może być obsługiwany lokalnie inaczej
+
+to było by dobre, gdybym chciał stworzyć coś na wzór języka programowania
+tutaj chodzi o tworzenie scenariuszy
+np. deno to jezyk imperatywny, działający tylko z JS a mnie interesuje niezależnie od platformy
+aby wykonać dowolny kod, trzeba najpier mieć do dsypozycji biblioteki
+zamiast zmieniać biblioteki, chciałbym je dostosowywać w tym samym języku w którym są pisane a potem użyć tutaj w YAML bez względu na język
+ język programowania typu nodej/python/... aby móc korzystać z klas, które są pośrenikami pomiędzy tym zapisem w YAML a konkretnymi bibliotekami
+myślę, że lepiej rozbić te dwie kwestie, jak biblioteka i adaptacja do użycia
+
+
+Ta koncepcja polega na pisaniu konwertowalnego do różnej postaci jezyka deklaratywnego, ale z zachowaniem detali,
+podstawowe parametry programu to: 
++ INIT
++ IMPORT
++ RUN
++ TEST
++ SET
+  
+postanowiłem położyć nacisk na typowanie, aby zmienne były tylko deklarowane jako publiczne
+a wewnątrz używać typów danych, które są obiektami klas, dzięki czemu, można je rozwijać i tworzyć własne
+IMPORT pozwala na to
+staram się też nie używać rozwiązań typu pętla, czy if, aby zachować prostotę w logice
+zmaiasty tego mamy strukturę z typowaniem oczekiwanych danych
+apidsl bezpośrednio uzywał prostych skryptów bash-a
+
+
+
 warstwa DSL dla komunikacji
 żeby można było wymieniać dane przez HTTP poprzez komendy w konsoli/na backendzie
 
