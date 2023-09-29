@@ -354,6 +354,40 @@ BROWSER CLICK | XPATH input.mid.button-green-large
 BROWSER CREATE file://screen.png
 ```
 
+```yaml
+IMPORT:
+    XPATH: "git@github.com:apirpc/list.git"
+    TXT_FROM_FILE: "git@github.com:apirpc/file.git"
+    BROWSER: "git@github.com:apirpc/path.git"
+
+SET:
+    URL: https://strato.pl/auth/login.html
+    PATH_SCREENSHOT: "/screenshots/"
+
+RUN:
+    BROWSER:
+        GET: URL
+        FOCUS:
+            XPATH: input.text.login
+        WRITE:
+            TXT_FROM_FILE: file://strato.pl/.user
+        FOCUS:
+            XPATH: input.text.password
+        WRITE:
+            TXT_FROM_FILE: file://strato.pl/.pass
+        WAIT: 3000
+        CLICK:
+            XPATH: input.mid.button-green-large
+        SCREENSHOT:
+            - MIMETYPE: FILE_FORMAT
+            - GET: URL
+            - SIZE: HD
+            - PATH:
+                - FOLDER: PATH_SCREENSHOT
+                - FILE_NAME:
+                    HOST_NAME: URL
+```
+
 
 
 ### format danych
