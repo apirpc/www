@@ -146,6 +146,25 @@ URL EACH LIST:
         CONTENT: FILE
 ```
 
+```yaml
+PATH_FILE: /domains/ionos.txt
+LIST:
+    FROM: PATH_FILE
+    SEPARATOR: NEL    
+URL EACH LIST:    
+    FILE:
+        PATH_FOLDER: /screenshots/
+        FILE_NAME:
+            HOST_NAME: URL
+        CONTENT:
+            IMAGE:             
+                SCREENSHOT: URL    
+                MIMETYPE: PNG
+    LOG:        
+        PATH_FOLDER: /logs/
+        FILE_NAME: dsl.log
+        CONTENT: FILE
+```
 
 zapisywanie logów
 ```yaml
