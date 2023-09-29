@@ -196,9 +196,9 @@ URL EACH LIST:
 IMPORTS:
     lodash: "https://esm.sh/lodash@4.17.21"
     apirpc: "git@github.com:inframonit/bash.git"
-PATH_FILE: "/domains/ionos.txt"
 LIST:
-    GET: PATH_FILE
+    GET: 
+        PATH_FILE: "/domains/ionos.txt"
     SEPARATOR: NEL    
     ITEM: URL
     EACH:    
