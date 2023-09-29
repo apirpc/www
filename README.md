@@ -95,21 +95,21 @@ ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 kaskadowo, kolejno
 ```bash
 LIST GET /path/to/folder/images/*
-ITEM EACH LIST | IMAGE GET ITEM | TXT OCR IMAGE | FILE CREATE file://domain.txt
+FILENAME EACH LIST | FILENAME GET ITEM | TXT OCR IMAGE | FILE CREATE file://domain.txt
 ```
 
 
 bot na strone www, desktop
 [strato/login_screenshot.csv at main · botreck/strato](https://github.com/botreck/strato/edit/main/login_screenshot.csv)
 ```bash
-SCREEN GET https://strato.pl/auth/login.html
-SCREEN FOCUS | CLASS input.text.login
-SCREEN WRITE | TXT GET file://strato.pl/.user
-SCREEN FOCUS | CLASS input.text.password
-SCREEN WRITE | TXT GET file://strato.pl/.pass
-SCREEN WAIT 3000
-SCREEN CLICK | XPATH input.mid.button-green-large
-SCREEN CREATE file://screen.png
+BROWSER GET https://strato.pl/auth/login.html
+BROWSER FOCUS | CLASS input.text.login
+BROWSER WRITE | TXT GET file://strato.pl/.user
+BROWSER FOCUS | CLASS input.text.password
+BROWSER WRITE | TXT GET file://strato.pl/.pass
+BROWSER WAIT 3000
+BROWSER CLICK | XPATH input.mid.button-green-large
+BROWSER CREATE file://screen.png
 ```
 
 
