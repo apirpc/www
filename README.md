@@ -373,6 +373,11 @@ IMPORT:
     TXT_FROM_FILE_PATH: "git@github.com:apirpc/file.git"
     BROWSER: "git@github.com:apirpc/path.git"
 
+USE:
+    XPATH: "class/xpath.py"
+    TXT_FROM_FILE_PATH: "class/xpath.py"
+    BROWSER: "class/xpath.py"    
+
 SET:
     URL: https://strato.pl/auth/login.html
     PATH_OUT: "/screenshots/"    
