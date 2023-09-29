@@ -108,6 +108,24 @@ LIST:
     LOG FROM FILE
 ```
 
+
+```yaml
+PATH_FILE: /domains/ionos.txt
+LIST:
+    FROM PATH_FILE
+    SEPARATOR NEL    
+URL EACH LIST:    
+    IMAGE:
+        SCREENSHOT URL    
+        MIMETYPE PNG
+    FILE:
+        PATH_FOLDER /screenshots/
+        FILE_NAME | HOST_NAME FROM URL
+        CONTENT IMAGE
+    LOG FROM FILE
+```
+
+
 zapisywanie logów
 ```yaml
 LOG FROM FILE
@@ -116,6 +134,7 @@ FILE:
     FILE_NAME dsl.log
     CONTENT LOG
 ```
+
 ##  stara wersja:
 ```
 ITEM FIRST LIST
