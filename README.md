@@ -378,16 +378,16 @@ RUN:
     BROWSER:
         GET: URL
         FOCUS:
-            XPATH: input.text.login
+            XPATH: "input.text.login"
         WRITE:
             TXT_FROM_FILE_PATH: PATH_USER
         FOCUS:
-            XPATH: input.text.password
+            XPATH: "input.text.password"
         WRITE:
             TXT_FROM_FILE_PATH: PATH_PASS
         WAIT: 3000
         CLICK:
-            XPATH: input.mid.button-green-large
+            XPATH: "input.mid.button-green-large"
         SCREENSHOT:
             - MIMETYPE: FILE_FORMAT
             - GET: URL
