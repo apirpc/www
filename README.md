@@ -46,25 +46,32 @@ pobierz adres **URL** z listy **LIST**
 ```bash
 URL FIRST LIST
 ```
+
+
+
 stwórz screenshoot z adresu **URL** elementu z listy **LIST**
-Zapisz do lokalnego pliku o nazwie hosta w formacie PNG
 ```bash
 SCREENSHOT GET URL
+```
+
+konfiguracja
+Zapisz do lokalnego pliku o nazwie hosta w formacie PNG
+```bash
 SCREENSHOT FILENAME | HOSTNAME FROM URL
 SCREENSHOT MIMETYPE PNG
-SCREENSHOT POST file://screenshots/
 ```
-Zapisz screenshot do pliku
+
+Zapisz screenshot do folderu i nazwie pliku wczesniej zdefiniowanego
 ```bash
-FILE CREATE file://domain.txt
+SCREENSHOT CREATE file://screenshots/
 ```
 
 ```bash
 URL FIRST LIST | SCREENSHOT GET URL | SCREENSHOT CREATE file://domain.txt
 ```
 
-pierwszy element zdalny host
-
+stara wersja:
+```
 ITEM FIRST LIST
 IMAGE GET ITEM
 FILE CREATE IMAGE
