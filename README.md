@@ -354,6 +354,19 @@ BROWSER CLICK | XPATH input.mid.button-green-large
 BROWSER CREATE file://screen.png
 ```
 
+
+Wykonanie kodu poprzez skrypt z domyślnymi danymi:
+```bash
+./apirpc browser.yaml
+```
+
+lub z parametrami
+```bash
+./apirpc browser.yaml URL=https://strato.pl/auth/login.html PATH_OUT="/screenshots/" PATH_IN="/provider/" FOLDER_PROVIDER="strato.pl"
+```
+
+
+browser.yaml
 ```yaml
 IMPORT:
     XPATH: "git@github.com:apirpc/list.git"
