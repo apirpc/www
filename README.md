@@ -584,15 +584,11 @@ IMPORT:
         GIT: "git@github.com:apirpc/browser.git"
         ADAPTER: "java/browser.java"
         DOCKER: "java/DOCKERFILE"
-    
-        
-SERVE:
-    FTP:
-        URI:"ftp://host:21"
-        AUTH:
-            PASS: .
-            USER: .
-        
+    SCREENSHOT:
+        GIT: "git@github.com:apirpc/puppetter.git"
+        ADAPTER: "js/browser.js"
+        DOCKER: "js/DOCKERFILE"
+            
 SET:
     URL: https://strato.pl/auth/login.html
     PATH_OUT: "/screenshots/"    
