@@ -94,9 +94,10 @@ URL EACH LIST:
 ```
 
 ```yaml
-PATH_FILE FROM file://domain.txt
-LIST GET PATH_FILE
-URL EACH LIST:
+PATH_FILE: FROM file://domain.txt
+LIST: GET PATH_FILE
+URL: EACH LIST
+LIST:
     IMAGE:
         SCREENSHOT URL    
         MIMETYPE PNG
