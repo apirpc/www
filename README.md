@@ -375,8 +375,8 @@ IMPORT:
 
 USE:
     XPATH: "class/xpath.py"
-    TXT_FROM_FILE_PATH: "class/xpath.py"
-    BROWSER: "class/xpath.py"    
+    TXT_FROM_FILE_PATH: "class/txt_from_file_path.py"
+    BROWSER: "class/browser.py"    
 
 SET:
     URL: https://strato.pl/auth/login.html
