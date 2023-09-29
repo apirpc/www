@@ -83,28 +83,28 @@ na koniec zapisz LOG z obiektu **FILE**
 kaskadowo, kolejno
 ```bash
 PATH_FILE FROM file://domain.txt
-LIST GET **PATH_FILE**
-URL EACH **LIST**:
-    **IMAGE** SCREENSHOT URL    
-    **IMAGE** MIMETYPE PNG
+LIST GET PATH_FILE
+URL EACH LIST:
+    IMAGE SCREENSHOT URL    
+    IMAGE MIMETYPE PNG
     FILE PATH_FOLDER /screenshots/
-    FILE FILE_NAME | HOST_NAME FROM **URL** 
-    FILE CONTENT **IMAGE**
-    LOG FROM **FILE**
+    FILE FILE_NAME | HOST_NAME FROM URL 
+    FILE CONTENT IMAGE
+    LOG FROM FILE
 ```
 
 ```bash
 PATH_FILE FROM file://domain.txt
-LIST GET **PATH_FILE**
-URL EACH **LIST**:
-    **IMAGE**:
+LIST GET PATH_FILE
+URL EACH LIST:
+    IMAGE:
         SCREENSHOT URL    
         MIMETYPE PNG
     FILE:
         PATH_FOLDER /screenshots/
-        FILE_NAME | HOST_NAME FROM **URL**
-        CONTENT **IMAGE**
-    LOG FROM **FILE**
+        FILE_NAME | HOST_NAME FROM URL
+        CONTENT IMAGE
+    LOG FROM FILE
 ```
 
 
