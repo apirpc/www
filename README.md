@@ -63,12 +63,13 @@ IMAGE MIMETYPE PNG
 
 
 Zapisz screenshot do folderu i nazwie pliku wczesniej zdefiniowanego
-```bash
-FILESYSTEM PATH file://screenshots/
-```
 
 ```bash
-URL FIRST LIST | IMAGE SCREENSHOT URL | IMAGE CREATE file://domain.txt
+URL FIRST LIST
+IMAGE SCREENSHOT URL
+FILE PATH_FOLDER file://screenshots/
+FILE CONTENT IMAGE
+LOG FROM FILE
 ```
 
 ## wnioski
@@ -77,6 +78,34 @@ wszelkie parametry podane na początku są ustalone jako default
 w trakcie wykonywania można je zmienić,
 np. ścieżka do pliku, może być stała
 a nazwa pliku dopasowywana do ale obie te wartości i zależności można ustalić wcześniej
+na koniec zapisz LOG z obiektu **FILE**
+
+kaskadowo, kolejno
+```bash
+PATH_FILE FROM file://domain.txt
+LIST GET **PATH_FILE**
+URL EACH **LIST**:
+    **IMAGE** SCREENSHOT URL    
+    **IMAGE** MIMETYPE PNG
+    FILE PATH_FOLDER /screenshots/
+    FILE FILE_NAME | HOST_NAME FROM **URL** 
+    FILE CONTENT **IMAGE**
+    LOG FROM **FILE**
+```
+
+```bash
+PATH_FILE FROM file://domain.txt
+LIST GET **PATH_FILE**
+URL EACH **LIST**:
+    **IMAGE**:
+        SCREENSHOT URL    
+        MIMETYPE PNG
+    FILE:
+        PATH_FOLDER /screenshots/
+        FILE_NAME | HOST_NAME FROM **URL**
+        CONTENT **IMAGE**
+    LOG FROM **FILE**
+```
 
 
 ##  stara wersja:
@@ -84,12 +113,6 @@ a nazwa pliku dopasowywana do ale obie te wartości i zależności można ustali
 ITEM FIRST LIST
 IMAGE GET ITEM
 FILE CREATE IMAGE
-```
-
-kaskadowo, kolejno
-```bash
-LIST GET file://domain.txt
-ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 ```
 
 kaskadowo, kolejno
