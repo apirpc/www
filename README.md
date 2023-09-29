@@ -1,5 +1,14 @@
 # www.apirpc.com
 
+
+API stands for Application Programming Interface, which is a set of functions and commands that allows different software applications to communicate with each other. 
+
+RPC stands for Remote Procedure Call, which is a protocol that one networked computer program can use to request a service from another program located in a different computer server on the network without having to understand the network's details. 
+
+"API RPC" refers to a particular kind of API that employs the RPC protocol to perform its services.
+This allows for real-time communication between a client and a server, in which the client sends a message for the server to execute a specific procedure.
+
+
 ## TODO
 
 + włączenie DSL jako usługi z przesyłaniem TXT i YML
