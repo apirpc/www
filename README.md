@@ -56,7 +56,7 @@ IMAGE SCREENSHOT URL
 
 konfiguracja
 Zapisz do lokalnego pliku o nazwie hosta w formacie PNG
-```bash
+```yaml
 IMAGE FILENAME | HOSTNAME FROM URL
 IMAGE MIMETYPE PNG
 ```
@@ -64,7 +64,7 @@ IMAGE MIMETYPE PNG
 
 Zapisz screenshot do folderu i nazwie pliku wczesniej zdefiniowanego
 
-```bash
+```yaml
 URL FIRST LIST
 IMAGE SCREENSHOT URL
 FILE PATH_FOLDER file://screenshots/
@@ -81,7 +81,7 @@ a nazwa pliku dopasowywana do ale obie te wartości i zależności można ustali
 na koniec zapisz LOG z obiektu **FILE**
 
 kaskadowo, kolejno
-```bash
+```yaml
 PATH_FILE FROM file://domain.txt
 LIST GET PATH_FILE
 URL EACH LIST:
@@ -93,7 +93,7 @@ URL EACH LIST:
     LOG FROM FILE
 ```
 
-```bash
+```yaml
 PATH_FILE FROM file://domain.txt
 LIST GET PATH_FILE
 URL EACH LIST:
@@ -108,7 +108,7 @@ URL EACH LIST:
 ```
 
 zapisywanie logów
-```bash
+```yaml
 LOG FROM FILE
 FILE:
     PATH_FOLDER /logs/
