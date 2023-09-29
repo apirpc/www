@@ -51,26 +51,35 @@ URL FIRST LIST
 
 stwórz screenshoot z adresu **URL** elementu z listy **LIST**
 ```bash
-SCREENSHOT GET URL
+IMAGE SCREENSHOT URL
 ```
 
 konfiguracja
 Zapisz do lokalnego pliku o nazwie hosta w formacie PNG
 ```bash
-SCREENSHOT FILENAME | HOSTNAME FROM URL
-SCREENSHOT MIMETYPE PNG
+IMAGE FILENAME | HOSTNAME FROM URL
+IMAGE MIMETYPE PNG
 ```
+
 
 Zapisz screenshot do folderu i nazwie pliku wczesniej zdefiniowanego
 ```bash
-SCREENSHOT CREATE file://screenshots/
+FILESYSTEM PATH file://screenshots/
 ```
 
 ```bash
-URL FIRST LIST | SCREENSHOT GET URL | SCREENSHOT CREATE file://domain.txt
+URL FIRST LIST | IMAGE SCREENSHOT URL | IMAGE CREATE file://domain.txt
 ```
 
-stara wersja:
+## wnioski
+
+wszelkie parametry podane na początku są ustalone jako default
+w trakcie wykonywania można je zmienić,
+np. ścieżka do pliku, może być stała
+a nazwa pliku dopasowywana do ale obie te wartości i zależności można ustalić wcześniej
+
+
+##  stara wersja:
 ```
 ITEM FIRST LIST
 IMAGE GET ITEM
