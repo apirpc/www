@@ -12,10 +12,19 @@ inspirując się nim i JQUERY zrobiłem APIdsl
 ale to skomplikowane, gdy musisz uczyć się tych wszystkich URI
 dlatego łatwiej po prostu spiąć do kupy kod który masz lokalnie
 
+w APIDSL chodziło o reuzycie kodu taki jaki jest
+teraz mysle nad czyms co ulatwi konfiguracje detali
+na początku myślałem o takim zapisie: 
++ Oczekiwany format - komenda - dana wejściowa
++ Obiekt - komenda - wartość
 
-jest kilka warstw, z reguły piszemy kod w zależnościach
-potem uruchamiamy je jako usługa
-i korzystamy też z usług zdalnych
+APIRPC:
+
++ format YAML, bo łatwiej to walidować
++ kilka warstw,
++ kod w zależnościach
++ uruchaminie kodu jako usługa i zarządzanie na poziomie systemu
++ SERVE możliwosć użycia z usług zdalnych
 i tutaj chce to wszystko zebrać do kupy tak jak robimy to w docker compose, ale o poziom wyżej, z możliwością konfigurowania samego formatu pliku
 np. na poczatku
 
@@ -34,6 +43,7 @@ Ta koncepcja polega na pisaniu konwertowalnego do różnej postaci jezyka deklar
 podstawowe parametry programu to: 
 + INIT
 + IMPORT
++ SERVE
 + RUN
 + TEST
 + SET
