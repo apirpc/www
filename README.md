@@ -224,6 +224,38 @@ RUN:
                                 SIZE: HD
 ```
 
+```yaml
+IMPORT:
+    lodash: "https://esm.sh/lodash@4.17.21"
+    apirpc: "git@github.com:inframonit/bash.git"
+    LIST: "git@github.com:apirpc/list.git"
+    FILE: "git@github.com:apirpc/file.git"
+    IMAGE: "git@github.com:apirpc/image.git"
+    SCREENSHOT: "git@github.com:apirpc/screenshot.git"
+SET:
+    PATH_PROVIDER: "/domains/ionos.txt"
+    PATH_SCREENSHOT: "/screenshots/"
+    FILE_FORMAT: "png"
+RUN:
+    LIST:
+        - GET: 
+            PATH_FILE: PATH_PROVIDER
+        - SEPARATOR: NEL    
+        - ITEM: URL
+        - EACH:    
+            FILE:
+                - PATH_FOLDER: PATH_SCREENSHOT
+                - FILE_NAME:
+                    HOST_NAME: URL
+                - CONTENT:
+                    IMAGE:                                 
+                        - MIMETYPE: FILE_FORMAT
+                        - CONTENT:
+                            SCREENSHOT:
+                                - GET: URL
+                                - SIZE: HD
+```
+
 
 zapisywanie logów
 ```yaml
