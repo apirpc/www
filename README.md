@@ -230,12 +230,22 @@ IMPORT:
     apirpc: "git@github.com:inframonit/bash.git"
     LIST: "git@github.com:apirpc/list.git"
     FILE: "git@github.com:apirpc/file.git"
+    PATH: "git@github.com:apirpc/path.git"
     IMAGE: "git@github.com:apirpc/image.git"
     SCREENSHOT: "git@github.com:apirpc/screenshot.git"
 SET:
     PATH_PROVIDER: "/domains/ionos.txt"
     PATH_SCREENSHOT: "/screenshots/"
+    TEST_PATH_SCREENSHOT: "/screenshots/*"
     FILE_FORMAT: "png"
+
+TEST:
+    PATH:
+        EXIST: PATH_PROVIDER
+        EXIST: PATH_SCREENSHOT
+    FILE:
+        GET: PATH_PROVIDER
+        RIGHTS: READABLE
 RUN:
     LIST:
         - GET: 
@@ -254,10 +264,20 @@ RUN:
                             SCREENSHOT:
                                 - GET: URL
                                 - SIZE: HD
+TEST:
+    PATH:
+        EXIST: TEST_PATH_SCREENSHOT            
 ```
 
 
-pobieranie klas i na ich podstawie walidowanie i debugowanie
+## Start
+załadowanie yaml
++ na podstawie IMPORT generowanie struktury projektów w .apirpc/
+    + pobieranie klas i na ich podstawie walidowanie i debugowanie
++ na podstawie SET zapisanie zmiennych
++ na podstawie RUN uruchomienie wywołań
++ TEST - sprawdzenie przed i po wykonaniu
+
 
 
 ```python
