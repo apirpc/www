@@ -1,5 +1,20 @@
 # www.apirpc.com
 
+## TODO
+
++ włączenie DSL jako usługi z przesyłaniem TXT i YML
++ podłączenie usług
++ obsługa zbiorów danych, i odczyt poprzez
+
+REQUEST PROTOCOL HOST OBJECT DATA FORMAT
+```
+GET http://local/object.yaml
+```
+
+
+
+## Inspiracja
+
 
 DSL jest do specyficznych, wyspecjalizowanych zastosowań, tutaj chciałbym mieć okazję do tworzenia w różnych formatach tych scenariuszy, by je przesyłać i wykonywać w różnych miejscach
 jest coś takiego jak Apache CAMEL https://camel.apache.org/camel-k/2.0.x/
@@ -12,11 +27,14 @@ inspirując się nim i JQUERY zrobiłem APIdsl
 ale to skomplikowane, gdy musisz uczyć się tych wszystkich URI
 dlatego łatwiej po prostu spiąć do kupy kod który masz lokalnie
 
+APIDSL
+
 w APIDSL chodziło o reuzycie kodu taki jaki jest
 teraz mysle nad czyms co ulatwi konfiguracje detali
 na początku myślałem o takim zapisie: 
 + Oczekiwany format - komenda - dana wejściowa
 + Obiekt - komenda - wartość
+
 
 APIRPC:
 
@@ -735,6 +753,7 @@ https://unix.stackexchange.com/questions/314550/how-to-set-a-script-to-execute-w
 ```bash
 ./apirpc script.apirpc
 ```
+
 
 
                     
