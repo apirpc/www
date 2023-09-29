@@ -196,6 +196,10 @@ URL EACH LIST:
 IMPORTS:
     lodash: "https://esm.sh/lodash@4.17.21"
     apirpc: "git@github.com:inframonit/bash.git"
+    LIST: "git@github.com:apirpc/list.git"
+    FILE: "git@github.com:apirpc/file.git"
+    IMAGE: "git@github.com:apirpc/image.git"
+    SCREENSHOT: "git@github.com:apirpc/screenshot.git"
 LIST:
     GET: 
         PATH_FILE: "/domains/ionos.txt"
