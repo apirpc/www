@@ -112,7 +112,7 @@ LIST:
 ```yaml
 PATH_FILE: /domains/ionos.txt
 LIST:
-    FROM PATH_FILE
+    URI PATH_FILE
     SEPARATOR NEL    
 URL EACH LIST:    
     IMAGE:
@@ -129,7 +129,7 @@ URL EACH LIST:
 ```yaml
 PATH_FILE: /domains/ionos.txt
 LIST:
-    FROM: PATH_FILE
+    GET: PATH_FILE
     SEPARATOR: NEL    
 URL EACH LIST:    
     IMAGE:
@@ -149,7 +149,7 @@ URL EACH LIST:
 ```yaml
 PATH_FILE: /domains/ionos.txt
 LIST:
-    FROM: PATH_FILE
+    GET: PATH_FILE
     SEPARATOR: NEL    
 URL EACH LIST:    
     FILE:
@@ -165,6 +165,31 @@ URL EACH LIST:
         FILE_NAME: dsl.log
         CONTENT: FILE
 ```
+
+
+
+
+```yaml
+PATH_FILE: /domains/ionos.txt
+LIST:
+    GET: PATH_FILE
+    SEPARATOR: NEL    
+URL EACH LIST:
+    LOG:        
+        PATH_FOLDER: /logs/
+        FILE_NAME: dsl.log
+        CONTENT: 
+            FILE:
+                PATH_FOLDER: /screenshots/
+                FILE_NAME:
+                    HOST_NAME: URL
+                CONTENT:
+                    IMAGE:             
+                        SCREENSHOT: URL    
+                        MIMETYPE: PNG
+```
+
+
 
 zapisywanie logów
 ```yaml
