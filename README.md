@@ -23,17 +23,48 @@ JSON PUT /device2/api/data { "temperature": 20 }
 ```
 
 
-pierwszy element
+### źródło
+
+local file
+```bash
+LIST READ file://domain.txt
+```
+or 
 ```bash
 LIST GET file://domain.txt
-ITEM FIRST LIST
-IMAGE GET ITEM
-FILE CREATE IMAGE
+```
+Read remote file
+plik domain.txt zawiera listę adresów URL
+```bash
+LIST GET https://domena.com/domain.txt
+```
+
+
+### file processing
+
+pobierz adres **URL** z listy **LIST**
+```bash
+URL FIRST LIST
+```
+stwórz screenshoot z adresu **URL** elementu z listy **LIST**
+Zapisz do lokalnego pliku o nazwie hosta w formacie PNG
+```bash
+SCREENSHOT GET URL
+SCREENSHOT FILENAME | HOSTNAME FROM URL
+SCREENSHOT MIMETYPE PNG
+SCREENSHOT POST file://screenshots/
+```
+Zapisz screenshot do pliku
+```bash
+FILE CREATE file://domain.txt
+```
+
+```bash
+URL FIRST LIST | SCREENSHOT GET URL | SCREENSHOT CREATE file://domain.txt
 ```
 
 pierwszy element zdalny host
-```bash
-LIST GET https://domena.com/domain.txt
+
 ITEM FIRST LIST
 IMAGE GET ITEM
 FILE CREATE IMAGE
@@ -48,7 +79,7 @@ ITEM EACH LIST | IMAGE GET ITEM | FILE CREATE IMAGE
 kaskadowo, kolejno
 ```bash
 LIST GET /path/to/folder/images/*
-ITEM EACH LIST | IMAGE GET ITEM | TXT OCR IMAGE | FILE CREATE TXT
+ITEM EACH LIST | IMAGE GET ITEM | TXT OCR IMAGE | FILE CREATE file://domain.txt
 ```
 
 
