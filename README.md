@@ -668,7 +668,13 @@ SET:
         - "file://"
         - FOLDER_PROVIDER
         - "/.pass"
-
+SERVE:
+  PORT:
+  HOST:
+  PATH:
+  AUTH:
+    USER:
+    PASS:
 ```
 
 
@@ -723,10 +729,14 @@ BROWSER SCREENSHOT:
 
 
 
-start script
+start script in commmand console or such service on port 24
+https://unix.stackexchange.com/questions/314550/how-to-set-a-script-to-execute-when-a-port-receives-a-message#314552
+
 ```bash
 ./apirpc script.apirpc
 ```
+
+
                     
 ### format danych
 dana wyjściowa - komenda - źródło
