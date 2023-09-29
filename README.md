@@ -562,6 +562,76 @@ RUN:
 
 
 
+
+
+
+
+browser.yaml
+```yaml
+# INSTALL: wget https://www.apirpc.com/apirpc.py | python
+INIT: "git@github.com:apirpc/apirpc.git"
+    
+IMPORT:    
+    XPATH:
+        SOURCE: "git@github.com:apirpc/list.git"        
+        ADAPTER: "python/xpath.py"
+        DOCKER: "python/DOCKERFILE"
+    TXT_FROM_FILE_PATH:
+        GIT: "git@github.com:apirpc/txt_from_file_path.git"
+        ADAPTER: "nodejs/txt_from_file_path.nodejs"
+        DOCKER: "nodejs/DOCKERFILE"
+    BROWSER:
+        GIT: "git@github.com:apirpc/browser.git"
+        ADAPTER: "java/browser.java"
+        DOCKER: "java/DOCKERFILE"
+    
+        
+SERVE:
+    FTP:
+        URI:"ftp://host:21"
+        AUTH:
+            PASS: .
+            USER: .
+        
+SET:
+    URL: https://strato.pl/auth/login.html
+    PATH_OUT: "/screenshots/"    
+    PATH_IN: "/provider/"
+    FOLDER_PROVIDER: "strato.pl"
+    PATH_USER:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.user"
+    PATH_PASS:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.pass"
+
+RUN:
+    BROWSER:
+        GET: URL
+        FOCUS:
+            XPATH: "input.text.login"
+        WRITE:
+            TXT_FROM_FILE_PATH: PATH_USER
+        FOCUS:
+            XPATH: "input.text.password"
+        WRITE:
+            TXT_FROM_FILE_PATH: PATH_PASS
+        WAIT: 3000
+        CLICK:
+            XPATH: "input.mid.button-green-large"
+        SCREENSHOT:
+            - MIMETYPE: FILE_FORMAT
+            - GET: URL
+            - SIZE: HD
+            - PATH:
+                - FOLDER: PATH_SCREENSHOT
+                - FILE_NAME:
+                    HOST_NAME: URL
+```
+
+
 ### format danych
 dana wyjściowa - komenda - źródło
 
