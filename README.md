@@ -440,7 +440,7 @@ INIT:
     RUN: "/apirpc/router.sh"
     SET: "/apirpc/config.sh"
     IMPORT: "/apirpc/import.sh"
-    SERVICES: "/apirpc/services.sh"
+    SERVE: "/apirpc/services.sh"
     
 IMPORT:    
     XPATH:
@@ -457,7 +457,7 @@ IMPORT:
         DOCKER: "java/DOCKERFILE"
     
         
-SERVICES:
+SERVE:
     FTP:
         URI:"ftp://host:21"
         AUTH:
