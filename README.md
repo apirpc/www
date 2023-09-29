@@ -628,6 +628,106 @@ RUN:
 ```
 
 
+
+
+
+
+environment_config.yaml
+```yaml
+# INSTALL: wget https://www.apirpc.com/apirpc.py | python
+INIT: "git@github.com:apirpc/apirpc.git"
+    
+IMPORT:    
+    XPATH:
+        SOURCE: "git@github.com:apirpc/list.git"        
+        ADAPTER: "python/xpath.py"
+        DOCKER: "python/DOCKERFILE"
+    TXT_FROM_FILE_PATH:
+        GIT: "git@github.com:apirpc/txt_from_file_path.git"
+        ADAPTER: "nodejs/txt_from_file_path.nodejs"
+        DOCKER: "nodejs/DOCKERFILE"
+    BROWSER:
+        GIT: "git@github.com:apirpc/browser.git"
+        ADAPTER: "java/browser.java"
+        DOCKER: "java/DOCKERFILE"
+    SCREENSHOT:
+        GIT: "git@github.com:apirpc/puppetter.git"
+        ADAPTER: "js/browser.js"
+        DOCKER: "js/DOCKERFILE"
+            
+SET:
+    URL: https://strato.pl/auth/login.html
+    PATH_OUT: "/screenshots/"    
+    PATH_IN: "/provider/"
+    FOLDER_PROVIDER: "strato.pl"
+    PATH_USER:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.user"
+    PATH_PASS:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.pass"
+
+```
+
+
+browser_script_run.yaml
+
+```yaml
+BROWSER:
+    GET: URL
+    FOCUS:
+        XPATH: "input.text.login"
+    WRITE:
+        TXT_FROM_FILE_PATH: PATH_USER
+    FOCUS:
+        XPATH: "input.text.password"
+    WRITE:
+        TXT_FROM_FILE_PATH: PATH_PASS
+    WAIT: 3000
+    CLICK:
+        XPATH: "input.mid.button-green-large"
+    SCREENSHOT:
+        - MIMETYPE: FILE_FORMAT
+        - GET: URL
+        - SIZE: HD
+        - PATH:
+            - FOLDER: PATH_SCREENSHOT
+            - FILE_NAME:
+                HOST_NAME: URL
+```
+
+
+script.apirpc
+```bash
+BROWSER GET URL
+XPATH SET "input.text.login"
+BROWSER FOCUS XPATH
+BROWSER WRITE | CONTENT GET FILE | FILE READ PATH_USER
+XPATH SET "input.text.password"
+BROWSER FOCUS XPATH
+BROWSER WRITE | TXT_FROM_FILE_PATH: PATH_PASS
+BROWSER WAIT: 3000
+BROWSER CLICK | XPATH: "input.mid.button-green-large"
+BROWSER SCREENSHOT:
+        - MIMETYPE: FILE_FORMAT
+        - GET: URL
+        - SIZE: HD
+        - PATH:
+            - FOLDER: PATH_SCREENSHOT
+            - FILE_NAME:
+                HOST_NAME: URL
+
+```
+
+
+
+start script
+```bash
+./apirpc script.apirpc
+```
+                    
 ### format danych
 dana wyjściowa - komenda - źródło
 
