@@ -107,7 +107,14 @@ URL EACH LIST:
     LOG FROM FILE
 ```
 
-
+zapisywanie logów
+```bash
+LOG FROM FILE
+FILE:
+    PATH_FOLDER /logs/
+    FILE_NAME dsl.log
+    CONTENT LOG
+```
 ##  stara wersja:
 ```
 ITEM FIRST LIST
