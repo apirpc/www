@@ -378,6 +378,13 @@ USE:
     TXT_FROM_FILE_PATH: "class/txt_from_file_path.py"
     BROWSER: "class/browser.py"    
 
+API:
+    FTP:
+        URI:"ftp://host:21"
+        AUTH:
+            PASS: .
+            USER: .
+        
 SET:
     URL: https://strato.pl/auth/login.html
     PATH_OUT: "/screenshots/"    
