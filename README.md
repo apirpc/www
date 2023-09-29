@@ -436,20 +436,27 @@ RUN:
 
 browser.yaml
 ```yaml
+INIT:
+    RUN: "/apirpc/router.sh"
+    SET: "/apirpc/config.sh"
+    IMPORT: "/apirpc/import.sh"
+    SERVICES: "/apirpc/services.sh"
+    
 IMPORT:    
     XPATH:
-        GIT: "git@github.com:apirpc/list.git"
-        ADAPTER: "class/xpath.py"
-        DOCKER: "docker python"
+        SOURCE: "git@github.com:apirpc/list.git"        
+        ADAPTER: "python/xpath.py"
+        DOCKER: "python/DOCKERFILE"
     TXT_FROM_FILE_PATH:
         GIT: "git@github.com:apirpc/txt_from_file_path.git"
-        ADAPTER: "class/txt_from_file_path.py"
-        DOCKER: "docker nodejs"
+        ADAPTER: "nodejs/txt_from_file_path.nodejs"
+        DOCKER: "nodejs/DOCKERFILE"
     BROWSER:
         GIT: "git@github.com:apirpc/browser.git"
-        ADAPTER: "class/browser.py"
-        DOCKER: "docker java"
-
+        ADAPTER: "java/browser.java"
+        DOCKER: "java/DOCKERFILE"
+    
+        
 SERVICES:
     FTP:
         URI:"ftp://host:21"
