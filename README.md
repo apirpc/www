@@ -190,20 +190,20 @@ URL EACH LIST:
 ```
 
 ```yaml
-PATH_FILE: /domains/ionos.txt
+PATH_FILE: "/domains/ionos.txt"
 LIST:
     GET: PATH_FILE
     SEPARATOR: NEL    
     ITEM: URL
     EACH:    
         FILE:
-            PATH_FOLDER: /screenshots/
+            PATH_FOLDER: "/screenshots/"
             FILE_NAME:
                 HOST_NAME: URL
             CONTENT:
                 IMAGE:             
                     SCREENSHOT: URL    
-                    MIMETYPE: PNG
+                    MIMETYPE: "PNG"
 ```
 
 
