@@ -378,6 +378,11 @@ USE:
     TXT_FROM_FILE_PATH: "class/txt_from_file_path.py"
     BROWSER: "class/browser.py"    
 
+ENV:
+    XPATH: "docker image"
+    TXT_FROM_FILE_PATH: "docker image"
+    BROWSER: "docker image"
+    
 API:
     FTP:
         URI:"ftp://host:21"
