@@ -257,6 +257,48 @@ RUN:
 ```
 
 
+pobieranie klas i na ich podstawie walidowanie i debugowanie
+
+
+```python
+class Screenshot {
+    public get;
+    public size;
+    
+    run (){
+    
+    }
+}
+```
+
+```python
+class File {
+    public path_folder;
+    public file_name;
+    public content;
+
+    contentFromImage() {
+    }
+
+    run (){
+    
+    }
+}
+```
+
+
+```python
+class Image {
+    public mimetype;
+    public content;
+    
+    run (){
+    
+    }
+}
+```
+
+
 zapisywanie logów
 ```yaml
 FILE:
