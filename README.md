@@ -357,12 +357,22 @@ BROWSER CREATE file://screen.png
 ```yaml
 IMPORT:
     XPATH: "git@github.com:apirpc/list.git"
-    TXT_FROM_FILE: "git@github.com:apirpc/file.git"
+    TXT_FROM_FILE_PATH: "git@github.com:apirpc/file.git"
     BROWSER: "git@github.com:apirpc/path.git"
 
 SET:
     URL: https://strato.pl/auth/login.html
-    PATH_SCREENSHOT: "/screenshots/"
+    PATH_OUT: "/screenshots/"    
+    PATH_IN: "/provider/"
+    FOLDER_PROVIDER: "strato.pl"
+    PATH_USER:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.user"
+    PATH_PASS:
+        - "file://"
+        - FOLDER_PROVIDER
+        - "/.pass"
 
 RUN:
     BROWSER:
@@ -370,11 +380,11 @@ RUN:
         FOCUS:
             XPATH: input.text.login
         WRITE:
-            TXT_FROM_FILE: file://strato.pl/.user
+            TXT_FROM_FILE_PATH: PATH_USER
         FOCUS:
             XPATH: input.text.password
         WRITE:
-            TXT_FROM_FILE: file://strato.pl/.pass
+            TXT_FROM_FILE_PATH: PATH_PASS
         WAIT: 3000
         CLICK:
             XPATH: input.mid.button-green-large
