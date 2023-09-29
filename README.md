@@ -211,9 +211,12 @@ LIST:
             FILE_NAME:
                 HOST_NAME: URL
             CONTENT:
-                IMAGE:             
-                    SCREENSHOT: URL    
+                IMAGE:                                 
                     MIMETYPE: "PNG"
+                    CONTENT:
+                        SCREENSHOT:
+                            GET: URL
+                            SIZE: HD
 ```
 
 
