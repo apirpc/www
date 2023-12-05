@@ -9,6 +9,25 @@ RPC stands for Remote Procedure Call, which is a protocol that one networked com
 This allows for real-time communication between a client and a server, in which the client sends a message for the server to execute a specific procedure.
 
 
+
+The main problem with JSON is the tooling. OpenAPI Generator provides a tool to generate stubs for the data. There is also Swagger CodeGen but they are IMO piss poor in terms of documentation and support.
+
+With Protobuf (plus GRPC) you get smaller network footprint and a performant server implementation that gets generated for you. However, the .proto files do not have much in terms of schema definition. It is meant to be a binary data transfer protocol meant for machine to machine. Even if it can be sent over HTTP as binary, it just adds to the complexity because you'd need specialized tools to debug it.
+
+In a microservices architecture, I'd use JSON for the following:
+
+    anything going outside (i.e. HTTP requests/responses)
+    Data stored in Kafka (makes thing much easier to debug)
+    Data stored in MySQL (which has a JSON data type)
+    (to generalize any place where data is looked at and is persisted to disk)
+
+I'd use Protobuf + GRPC for
+
+    remote procedure calls. This saves having to run a full HTTP stack, a GRPC server is much lighter.
+    values stored in Redis. This is primarily because Redis stores all data in memory so it's best to keep it as small as possible. I emphasized values because it's still best to keep keys readable. But this is if you need multiple languages to read through the data. Otherwise use the fastest serialization mechanism you have.
+
+
+
 ## TODO
 
 + włączenie DSL jako usługi z przesyłaniem TXT i YML
